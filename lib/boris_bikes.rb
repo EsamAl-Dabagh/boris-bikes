@@ -5,3 +5,11 @@ class DockingStation
 
 end
 
+class Bike 
+  def good_bike
+
+  end
+
+end
+
+

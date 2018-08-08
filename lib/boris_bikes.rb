@@ -8,9 +8,7 @@ end
 
 class Bike 
   def good_bike
-
+    true
   end
 
 end
-
-

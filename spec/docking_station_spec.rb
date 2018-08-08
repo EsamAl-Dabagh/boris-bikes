@@ -23,4 +23,9 @@ describe DockingStation do
   it "raises an error if release_bike is called on empty array" do 
     expect { subject.release_bike }.to raise_error("Docking station is empty")
   end
+
+  it "raises an error if #dock is called on a full docking station" do 
+    subject.dock(Bike.new)
+    expect { subject.dock(Bike.new) }.to raise_error("Docking station is full")
+  end
 end

@@ -16,6 +16,10 @@ class DockingStation
     @bikes << bike
   end
 
+  def full? 
+    
+  end
+
 end
 
 class Bike 

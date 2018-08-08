@@ -5,12 +5,22 @@ describe DockingStation do
   
   it "checks whether a bike has been created" do
     station = DockingStation.new
+    station.bikes << Bike.new
     bike = station.release_bike
     expect(bike).not_to eq(nil)
   end
 
   it "releases a working bike" do 
+    subject.bikes << Bike.new
     bike = subject.release_bike
     expect(bike.is_a?(Bike) && bike.good_bike).to eq true
+  end
+
+  it { is_expected.to respond_to(:dock) }
+
+  it { is_expected.to respond_to(:bikes) }
+
+  it "raises an error if release_bike is called on empty array" do 
+    expect { subject.release_bike }.to raise_error("Docking station is empty")
   end
 end

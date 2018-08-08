@@ -13,7 +13,7 @@ describe DockingStation do
   it "releases a working bike" do 
     subject.bikes << Bike.new
     bike = subject.release_bike
-    expect(bike.is_a?(Bike) && bike.good_bike).to eq true
+    expect(bike.is_a?(Bike) && bike.condition).to eq true
   end
 
   it { is_expected.to respond_to(:dock) }
@@ -33,5 +33,10 @@ describe DockingStation do
 
   it "should set DEFAULT_CAPACITY for new instances to equal 20" do
     expect(subject.capacity).to eq 20
+  end
+
+  it 'register docked bikes as broken' do
+    subject.dock(Bike.new)
+    expect(subject.bikes.last.condition).to eq false
   end
 end

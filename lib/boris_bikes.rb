@@ -11,11 +11,13 @@ class DockingStation
 
   def release_bike
     raise("Docking station is empty") if empty?
-    Bike.new
+    @bikes.last.good_bike
+    @bikes.pop
   end
 
   def dock(bike) 
     raise("Docking station is full") if full?
+    bike.good_bike(false)
     @bikes << bike
   end
 
@@ -32,8 +34,15 @@ class DockingStation
 end
 
 class Bike 
-  def good_bike
-    true
+  attr_reader :condition
+
+  def initialize
+    @condition = true
+  end
+
+  def good_bike(condition=true)
+    @condition = condition
+    self
   end
 
 end

@@ -4,8 +4,8 @@ class DockingStation
 
   attr_reader :bikes, :capacity
 
-  def initialize
-    @capacity = DEFAULT_CAPACITY
+  def initialize(capacity =DEFAULT_CAPACITY)
+    @capacity = capacity
     @bikes = []
   end
 
@@ -26,7 +26,7 @@ class DockingStation
   end
 
   def full? 
-    @bikes.length == DEFAULT_CAPACITY
+    @bikes.length == capacity
   end
 
 end
@@ -38,6 +38,6 @@ class Bike
 
 end
 
-# ds = DockingStation.new
-# 20.times { ds.dock(Bike.new) }
+# ds = DockingStation.new(18)
+# 18.times { ds.dock(Bike.new) }
 # ds.dock(Bike.new)

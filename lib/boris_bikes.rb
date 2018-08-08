@@ -12,7 +12,7 @@ class DockingStation
   end
 
   def dock(bike) 
-    raise("Docking station is full") if !@bikes.empty?
+    raise("Docking station is full") if @bikes.length == 20
     @bikes << bike
   end
 
@@ -26,4 +26,5 @@ class Bike
 end
 
 # ds = DockingStation.new
-# p ds.release_bike
+# 20.times { ds.dock(Bike.new) }
+# ds.dock(Bike.new)
